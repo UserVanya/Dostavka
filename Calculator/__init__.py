@@ -154,7 +154,7 @@ class DeliveryFinancialTable:
         for field, value in self.fields.items():
             percentage = self.calculate_percentage(self.fields[field])
             row = ws.max_row + 1
-            ws.append([field, f"{value:.2f}", f"{percentage:.2f}"])
+            ws.append([field, round(value, 2) , round(percentage, 2)])
 
             # Highlight specific rows
             if field == "Сумма без скидки":

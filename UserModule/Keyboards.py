@@ -40,13 +40,14 @@ class UserEnterDataMenuKeyboard(InlineKeyboardMarkup):
         keyboard.append([InlineKeyboardButton(di_text, callback_data=self.CB_DELIVERIES_INTERNAL)])
         keyboard.append([InlineKeyboardButton(dd_text, callback_data=self.CB_DELIVERIES_DISTANCE)])
         keyboard.append([InlineKeyboardButton(dh_text, callback_data=self.CB_DRIVER_HOURS)])
-        if all([user_data.collector_salary, 
-                user_data.drivers_salary, 
-                user_data.additional_costs, 
-                user_data.deliveries_number, 
-                user_data.deliveries_internal, 
-                user_data.deliveries_distance, 
-                user_data.driver_hours]):
+        if user_data.collector_salary is not None and\
+                user_data.drivers_salary is not None and\
+                user_data.additional_costs is not None and\
+                user_data.deliveries_number is not None and\
+                user_data.deliveries_internal is not None and\
+                user_data.deliveries_distance is not None and\
+                user_data.driver_hours is not None and\
+                user_data.date is not None:
             keyboard.append([InlineKeyboardButton(self.B_SAVE, callback_data=self.CB_SAVE)])
         super().__init__(keyboard)
 
